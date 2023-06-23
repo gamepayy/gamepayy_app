@@ -105,7 +105,7 @@ const UserHero: React.FC<UserHeroProps> = ({ userId }) => {
           <div className="col-span-3 grid grid-cols-3 gap-10">
             <div className="flex flex-col gap-6">
               <div className="flex flex-col gap-2">
-                <p>Win/Losses</p>
+                <p className="text">Win/Losses</p>
                 <p>0/0</p>
               </div>
               <div className="flex flex-col gap-2">
