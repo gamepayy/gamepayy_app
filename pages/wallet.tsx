@@ -1,6 +1,8 @@
 import React from "react";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { useAccount } from "wagmi";
+import { useBalance } from "wagmi";
+
 import Button from "@/components/ui/button";
 import { DataTable } from "@/components/table/data-table";
 import { Transaction, columns } from "@/components/table/columns";
@@ -102,7 +104,7 @@ function getData(): Transaction[] {
 const WalletPage = () => {
   const { address, isConnecting, isDisconnected, isConnected } = useAccount();
 
-  const data = getData();
+  const table_data = getData();
 
   return (
     <div className="text-white col-span-12">
@@ -126,7 +128,7 @@ const WalletPage = () => {
             <div className="flex flex-col gap-3">
               <p className="text-gray-400">Wallet Balance</p>
               <div>
-                <p className="text-2xl">259.00 MATIC</p>
+                <p className="text-2xl">0 MATIC</p>
                 <p className="text-gray-400">~ $0</p>
               </div>
             </div>
@@ -136,7 +138,7 @@ const WalletPage = () => {
             </div> */}
           </div>
         </div>
-        <DataTable columns={columns} data={data} />
+        <DataTable columns={columns} data={table_data} />
       </div>
     </div>
   );
