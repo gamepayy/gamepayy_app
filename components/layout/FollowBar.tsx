@@ -13,7 +13,7 @@ const FollowBar = () => {
   }
 
   return (
-    <div className="col-span-3 text-white border px-6 py-5 flex flex-col gap-4 rounded-lg">
+    <div className="col-span-3 text-white border border-gray-700 px-6 py-5 flex flex-col gap-4 rounded-lg">
       <div>New users</div>
       <div className="flex flex-col gap-4">
         {users.slice(0, 5).map((user: Record<string, any>) => (
@@ -25,7 +25,7 @@ const FollowBar = () => {
               <Avatar userId={user.id} />
               <div className="flex flex-col">
                 <p className="text-white font-semibold text-sm">
-                  {user.username}
+                  {user.username ?? user.email}
                 </p>
                 <p className="text-neutral-400 text-sm">{user.bio}</p>
               </div>

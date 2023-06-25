@@ -112,7 +112,7 @@ const WalletPage = () => {
         <h2 className="font-semibold">Wallet</h2>
         <ConnectButton />
       </div>
-      <div className="flex flex-col h-full gap-4 mt-4">
+      {/* <div className="flex flex-col h-full gap-4 mt-4">
         <div className="flex gap-4">
           <div className="w-full border border-gray-700 rounded-md p-4 flex justify-between items-start">
             <div className="flex flex-col gap-3">
@@ -132,14 +132,10 @@ const WalletPage = () => {
                 <p className="text-gray-400">~ $0</p>
               </div>
             </div>
-            {/* <div className="flex gap-4">
-              <Button label="Buy" onClick={() => {}} />
-              <Button label="Transfer" secondary onClick={() => {}} />
-            </div> */}
           </div>
         </div>
         <DataTable columns={columns} data={table_data} />
-      </div>
+      </div> */}
     </div>
   );
 };

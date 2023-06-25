@@ -51,7 +51,7 @@ const Form: React.FC<FormProps> = ({ placeholder, isComment, postId }) => {
   return (
     <div className="border-neutral-800 py-2 text-white">
       {currentUser ? (
-        <div className="flex border rounded-lg border-gray-300 py-5 px-6 justify-between">
+        <div className="flex border rounded-lg border-gray-700 py-5 px-6 justify-between">
           <div className="flex gap-3 w-full">
             <Avatar userId={currentUser.id} />
             <div className="flex items-center justify-between w-full">
