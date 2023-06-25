@@ -75,7 +75,7 @@ const Form: React.FC<FormProps> = ({ placeholder, isComment, postId }) => {
         </div>
       ) : (
         <div className="py-8">
-          <h1 className="text-white text-2xl text-center mb-4 font-bold">
+          <h1 className="text-white text-center mb-4 font-semibold">
             Welcome to GamePayy
           </h1>
           <div className="flex flex-row items-center justify-center gap-4">

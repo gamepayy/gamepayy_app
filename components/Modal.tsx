@@ -66,7 +66,7 @@ const Modal: React.FC<ModalProps> = ({
             <RiCloseFill size={24} />
           </button>
           <div className="text-center flex flex-col gap-3">
-            <div>{title}</div>
+            <h2 className="font-semibold">{title}</h2>
             <div>{footer}</div>
           </div>
           {body}
