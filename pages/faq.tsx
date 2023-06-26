@@ -6,6 +6,7 @@ const FaqPage = () => {
       <div className="flex items-center justify-between">
         <h2 className="font-semibold">FAQ</h2>
       </div>
+      <div className="flex items-center justify-center">Under Construction</div>
     </div>
   );
 };
