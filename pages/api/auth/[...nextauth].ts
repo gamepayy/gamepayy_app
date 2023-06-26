@@ -5,6 +5,7 @@ import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import GoogleProvider from "next-auth/providers/google";
 
 import prisma from "@/libs/prismadb";
+import { toast } from "sonner";
 
 export const authOptions: AuthOptions = {
   adapter: PrismaAdapter(prisma),
@@ -17,6 +18,7 @@ export const authOptions: AuthOptions = {
       },
       async authorize(credentials) {
         if (!credentials?.email || !credentials?.password) {
+          toast.error("Invalid credentials");
           throw new Error("Invalid credentials");
         }
 
@@ -27,6 +29,7 @@ export const authOptions: AuthOptions = {
         });
 
         if (!user || !user?.hashedPassword) {
+          toast.error("Invalid credentials");
           throw new Error("Invalid credentials");
         }
 
@@ -36,6 +39,7 @@ export const authOptions: AuthOptions = {
         );
 
         if (!isCorrectPassword) {
+          toast.error("Invalid credentials");
           throw new Error("Invalid credentials");
         }
 
