@@ -78,7 +78,7 @@ const UserHero: React.FC<UserHeroProps> = ({ userId }) => {
       </div>
       <div className="grid grid-cols-12 gap-4 p-4">
         <div className="col-span-5 grid grid-cols-3">
-          <div className="flex flex-col">
+          <div className="flex flex-col text-gray-400">
             <p>Friends ({fetchedUser?.friendIds?.length || 0})</p>
             <div className="flex mb-5 -space-x-4">
               {fetchedUser?.friendIds?.slice(-4).map((friendId: any) => (
@@ -86,7 +86,7 @@ const UserHero: React.FC<UserHeroProps> = ({ userId }) => {
               ))}
             </div>
           </div>
-          <div className="flex flex-col">
+          <div className="flex flex-col text-gray-400">
             <p>Following ({fetchedUser?.followingIds?.length || 0})</p>
             <div className="flex mb-5 -space-x-4">
               {fetchedUser?.followingIds?.slice(-4).map((friendId: any) => (
@@ -94,7 +94,7 @@ const UserHero: React.FC<UserHeroProps> = ({ userId }) => {
               ))}
             </div>
           </div>
-          <div className="flex flex-col">
+          <div className="flex flex-col text-gray-400">
             <p>Followers ({fetchedUser?.followerIds?.length || 0})</p>
             <div className="flex mb-5 -space-x-4">
               {fetchedUser?.followerIds?.slice(-4).map((friendId: any) => (
@@ -105,31 +105,31 @@ const UserHero: React.FC<UserHeroProps> = ({ userId }) => {
           <div className="col-span-3 grid grid-cols-3 gap-10">
             <div className="flex flex-col gap-6">
               <div className="flex flex-col gap-2">
-                <p className="text">Win/Losses</p>
+                <p className="text-gray-400">Win/Losses</p>
                 <p>0/0</p>
               </div>
               <div className="flex flex-col gap-2">
-                <p>GamePayy Rank</p>
+                <p className="text-gray-400">GamePayy Rank</p>
                 <p>-</p>
               </div>
             </div>
             <div className="flex flex-col gap-6">
               <div className="flex flex-col gap-2">
-                <p>Points</p>
+                <p className="text-gray-400">Points</p>
                 <p>0</p>
               </div>
               <div className="flex flex-col gap-2">
-                <p>Mathces Played</p>
+                <p className="text-gray-400">Mathces Played</p>
                 <p>0</p>
               </div>
             </div>
             <div className="flex flex-col gap-6">
               <div className="flex flex-col gap-2">
-                <p>Earnings</p>
+                <p className="text-gray-400">Earnings</p>
                 <p>0 $</p>
               </div>
               <div className="flex flex-col gap-2">
-                <p>Registered</p>
+                <p className="text-gray-400">Registered</p>
                 <p>{createdAt}</p>
               </div>
             </div>

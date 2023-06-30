@@ -16,6 +16,7 @@ const ImageUpload: React.FC<DropzoneProps> = ({
   disabled,
 }) => {
   const [base64, setBase64] = useState(value);
+  const [web3Image, setWeb3Image] = useState("");
 
   const handleChange = useCallback(
     (base64: string) => {
@@ -28,6 +29,7 @@ const ImageUpload: React.FC<DropzoneProps> = ({
     (files: any) => {
       const file = files[0];
       const reader = new FileReader();
+
       reader.onload = (event: any) => {
         setBase64(event.target.result);
         handleChange(event.target.result);

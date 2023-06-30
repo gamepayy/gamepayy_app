@@ -1,6 +1,6 @@
 import Layout from "@/components/Layout";
 import { Toaster } from "sonner";
-import { SessionProvider } from "next-auth/react";
+import { SessionProvider, useSession } from "next-auth/react";
 import LoginModal from "@/components/modals/LoginModal";
 import RegisterModal from "@/components/modals/RegisterModal";
 import "@/styles/globals.css";
@@ -22,6 +22,8 @@ import { mainnet, polygon, optimism, arbitrum, goerli } from "wagmi/chains";
 import { publicProvider } from "wagmi/providers/public";
 import localFont from "next/font/local";
 import Head from "next/head";
+import useCurrentUser from "@/hooks/useCurrentUser";
+import { ClipLoader } from "react-spinners";
 
 const { chains, publicClient, webSocketPublicClient } = configureChains(
   [

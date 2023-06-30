@@ -1,7 +1,7 @@
 import React from "react";
 import Sidebar from "./layout/sidebar/Sidebar";
 import Navbar from "./layout/navbar/Navbar";
-import FollowBar from "./layout/FollowBar";
+
 interface LayoutProps {
   children: React.ReactNode;
 }

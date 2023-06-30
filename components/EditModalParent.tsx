@@ -1,7 +1,6 @@
 import { useCallback } from "react";
 import Button from "./ui/button";
-import { RiCloseFill, RiFacebookFill, RiGoogleFill } from "react-icons/ri";
-import AuthSocialButton from "./AuthSocialBtn";
+import { RiCloseFill } from "react-icons/ri";
 
 interface ModalProps {
   isOpen?: boolean;

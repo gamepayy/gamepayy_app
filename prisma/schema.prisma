@@ -14,21 +14,24 @@ datasource db {
 }
 
 model User {
-  id              String    @id @default(auto()) @map("_id") @db.ObjectId
-  name            String?
-  username        String?   @unique
-  bio             String?
-  email           String?   @unique
-  emailVerified   DateTime?
-  image           String?
-  coverImage      String?
-  profileImage    String?
-  hashedPassword  String?
-  createdAt       DateTime  @default(now())
-  updatedAt       DateTime  @updatedAt
-  followingIds    String[]  @db.ObjectId
-  followerIds     String[]  @db.ObjectId
-  hasNotification Boolean?
+  id               String    @id @default(auto()) @map("_id") @db.ObjectId
+  name             String?
+  username         String?   @unique
+  bio              String?
+  email            String?   @unique
+  emailVerified    DateTime?
+  image            String?
+  web3Image        String?
+  coverImage       String?
+  web3CoverImage   String?
+  profileImage     String?
+  web3profileImage String?
+  hashedPassword   String?
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+  followingIds     String[]  @db.ObjectId
+  followerIds      String[]  @db.ObjectId
+  hasNotification  Boolean?
 
   posts           Post[]
   comments        Comment[]

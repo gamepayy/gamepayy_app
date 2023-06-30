@@ -2,7 +2,6 @@ import Form from "@/components/Form";
 import PostFeed from "@/components/posts/PostFeed";
 import UserHero from "@/components/users/UserHero";
 import UserStats from "@/components/users/UserStats";
-import useCurrentUser from "@/hooks/useCurrentUser";
 import useUser from "@/hooks/useUser";
 import { useRouter } from "next/router";
 import React from "react";
@@ -11,7 +10,6 @@ import { ClipLoader } from "react-spinners";
 const UserView = () => {
   const router = useRouter();
   const { userId } = router.query;
-  const { data: currentUser } = useCurrentUser();
 
   const { data: fetchedUser, isLoading } = useUser(userId as string);
 

@@ -1,18 +1,15 @@
 import { useRouter } from "next/router";
 import { useCallback, useMemo } from "react";
 import { AiFillHeart, AiOutlineHeart, AiOutlineMessage } from "react-icons/ai";
-import { format, formatDistanceToNowStrict } from "date-fns";
+import { formatDistanceToNowStrict } from "date-fns";
 
 import useLoginModal from "@/hooks/useLoginModal";
 import useCurrentUser from "@/hooks/useCurrentUser";
 import useLike from "@/hooks/useLike";
+import Linkify from "linkify-react";
 
 import Avatar from "../ui/avatar";
-import {
-  RiDiscussFill,
-  RiHeart3Fill,
-  RiShareForwardFill,
-} from "react-icons/ri";
+import { RiDiscussFill, RiHeart3Fill } from "react-icons/ri";
 interface PostItemProps {
   data: Record<string, any>;
   userId?: string;
@@ -50,8 +47,6 @@ const PostItem: React.FC<PostItemProps> = ({ data = {}, userId }) => {
     [loginModal, currentUser, toggleLike]
   );
 
-  const LikeIcon = hasLiked ? AiFillHeart : AiOutlineHeart;
-
   const createdAt = useMemo(() => {
     if (!data?.createdAt) {
       return null;
@@ -59,6 +54,11 @@ const PostItem: React.FC<PostItemProps> = ({ data = {}, userId }) => {
 
     return formatDistanceToNowStrict(new Date(data.createdAt));
   }, [data.createdAt]);
+
+  const options = {
+    defaultProtocol: "https",
+    target: "_blank",
+  };
 
   return (
     <div
@@ -69,7 +69,7 @@ const PostItem: React.FC<PostItemProps> = ({ data = {}, userId }) => {
     transition"
       onClick={goToPost}
     >
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between items-center text-white">
         <div className="flex items-center gap-4">
           <div className="flex gap-4 items-center">
             <div className="flex gap-1 items-center">
@@ -84,7 +84,7 @@ const PostItem: React.FC<PostItemProps> = ({ data = {}, userId }) => {
                 {data.user.username ?? data.user.email}
               </p>
             </div>
-            <p>{format(new Date(data.createdAt), "MM/dd/yyyy p")}</p>
+            <p>{createdAt} ago</p>
           </div>
         </div>
         <div className="flex items-center gap-2">
@@ -99,7 +99,9 @@ const PostItem: React.FC<PostItemProps> = ({ data = {}, userId }) => {
           {data.comments?.length || 0}
         </div>
       </div>
-      <div className="text-white">{data.body}</div>
+      <Linkify as="p" options={options} className="text-white post-link">
+        {data.body}
+      </Linkify>
     </div>
   );
 };

@@ -3,6 +3,7 @@ import { useCallback, useMemo } from "react";
 import { formatDistanceToNowStrict } from "date-fns";
 
 import Avatar from "../ui/avatar";
+import Linkify from "linkify-react";
 
 interface CommentItemProps {
   data: Record<string, any>;
@@ -28,6 +29,10 @@ const CommentItem: React.FC<CommentItemProps> = ({ data = {} }) => {
     return formatDistanceToNowStrict(new Date(data.createdAt));
   }, [data.createdAt]);
 
+  const options = {
+    defaultProtocol: "https",
+    target: "_blank",
+  };
   return (
     <div
       className="
@@ -66,9 +71,13 @@ const CommentItem: React.FC<CommentItemProps> = ({ data = {} }) => {
             >
               @{data.user.username}
             </span>
-            <span className="text-neutral-500 text-sm">{createdAt}</span>
+            <span className="text-neutral-500 text-sm">{createdAt} ago</span>
           </div>
-          <div className="text-white mt-1">{data.body}</div>
+          <div className="text-white mt-1">
+            <Linkify as="p" options={options} className="post-link">
+              {data.body}
+            </Linkify>
+          </div>
         </div>
       </div>
     </div>
