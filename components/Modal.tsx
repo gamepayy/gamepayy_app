@@ -77,7 +77,7 @@ const Modal: React.FC<ModalProps> = ({
             large
             onClick={handleSubmit}
           />
-          {socialButtons}
+          {/* {socialButtons} */}
         </div>
       </div>
     </>
