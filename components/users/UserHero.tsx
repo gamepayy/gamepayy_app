@@ -40,7 +40,7 @@ const UserHero: React.FC<UserHeroProps> = ({ userId }) => {
     <div className="bg-black rounded-lg border border-gray-700">
       <div className="h-60 relative">
         <Image
-          src={fetchedUser?.coverImage ?? "/images/default_cover.png"}
+          src={fetchedUser?.web3CoverImage ?? "/images/default_cover.png"}
           fill
           alt="Cover Image"
           style={{ objectFit: "cover" }}

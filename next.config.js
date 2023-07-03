@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['api.dicebear.com', 'dummyimage.com', 'lh3.googleusercontent.com'],
+    domains: ['api.dicebear.com', 'dummyimage.com', 'lh3.googleusercontent.com', 'ipfs.io'],
     dangerouslyAllowSVG: true,
     contentDispositionType: 'attachment',
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;"

@@ -16,7 +16,6 @@ const ImageUpload: React.FC<DropzoneProps> = ({
   disabled,
 }) => {
   const [base64, setBase64] = useState(value);
-  const [web3Image, setWeb3Image] = useState("");
 
   const handleChange = useCallback(
     (base64: string) => {
@@ -41,12 +40,13 @@ const ImageUpload: React.FC<DropzoneProps> = ({
 
   const { getRootProps, getInputProps } = useDropzone({
     maxFiles: 1,
-    maxSize: 100000,
+    maxSize: 5000000,
     onDrop: handleDrop,
     disabled,
     accept: {
       "image/jpeg": [],
       "image/png": [],
+      "image/jpg": [],
     },
   });
 

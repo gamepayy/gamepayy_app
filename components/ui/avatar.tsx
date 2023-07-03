@@ -47,7 +47,7 @@ const Avatar: React.FC<AvatarProps> = ({ userId, isLarge, hasBorder }) => {
         alt="Avatar"
         onClick={onClick}
         src={
-          fetchedUser?.profileImage ||
+          fetchedUser?.web3profileImage ||
           fetchedUser?.image ||
           `/images/default_profile.png`
         }
