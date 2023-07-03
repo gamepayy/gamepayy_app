@@ -35,25 +35,30 @@ export default async function handler(
 
     const { name, username, bio, profileImage, coverImage } = req.body;
 
+    let web3profileImage = "";
+    let web3CoverImage = "";
+
     if (!name || !username) {
       throw new Error("Missing fields");
     }
 
-    var baseCode = profileImage.split(",")[0];
-    var dataImageCode = profileImage.split(",")[1];
-    const base64Response = await fetch(`${baseCode},${dataImageCode}`);
-    const blob = await base64Response.blob();
+    if (profileImage) {
+      var baseCode = profileImage.split(",")[0];
+      var dataImageCode = profileImage.split(",")[1];
+      const base64Response = await fetch(`${baseCode},${dataImageCode}`);
+      const blob = await base64Response.blob();
+      const addedProfileImage = await client.add(blob);
+      web3profileImage = `https://ipfs.io/ipfs/${addedProfileImage.path}`;
+    }
 
-    var baseCode2 = coverImage.split(",")[0];
-    var dataImageCode2 = coverImage.split(",")[1];
-    const base64Response2 = await fetch(`${baseCode2},${dataImageCode2}`);
-    const blob2 = await base64Response2.blob();
-
-    const addedProfileImage = await client.add(blob);
-    const addedCover = await client.add(blob2);
-
-    const web3profileImage = `https://ipfs.io/ipfs/${addedProfileImage.path}`;
-    const web3CoverImage = `https://ipfs.io/ipfs/${addedCover.path}`;
+    if (coverImage) {
+      var baseCode2 = coverImage.split(",")[0];
+      var dataImageCode2 = coverImage.split(",")[1];
+      const base64Response2 = await fetch(`${baseCode2},${dataImageCode2}`);
+      const blob2 = await base64Response2.blob();
+      const addedCover = await client.add(blob2);
+      web3CoverImage = `https://ipfs.io/ipfs/${addedCover.path}`;
+    }
 
     const updatedUser = await prisma.user.update({
       where: {
