@@ -48,7 +48,6 @@ const EditModal = () => {
         coverImage,
       });
       mutateFetchedUser();
-
       toast.success("Updated");
 
       editModal.onClose();

@@ -3,6 +3,8 @@ import { NextApiRequest, NextApiResponse } from "next";
 import prisma from "@/libs/prismadb";
 import serverAuth from "@/libs/serverAuth";
 
+export const config = { api: { bodyParser: { sizeLimit: "20mb" } } };
+
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse

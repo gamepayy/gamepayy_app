@@ -24,6 +24,7 @@ import localFont from "next/font/local";
 import Head from "next/head";
 import useCurrentUser from "@/hooks/useCurrentUser";
 import { ClipLoader } from "react-spinners";
+import { Analytics } from "@vercel/analytics/react";
 
 const { chains, publicClient, webSocketPublicClient } = configureChains(
   [
@@ -119,6 +120,7 @@ export default function App({ Component, pageProps }: AppProps) {
             <EditModal />
             <Layout>
               <Component {...pageProps} />
+              <Analytics />
             </Layout>
           </main>
         </RainbowKitProvider>
