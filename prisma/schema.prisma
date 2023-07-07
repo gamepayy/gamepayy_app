@@ -22,9 +22,9 @@ model User {
   emailVerified    DateTime?
   image            String?
   web3Image        String?
-  coverImage       String?
+  // coverImage       String?
   web3CoverImage   String?
-  profileImage     String?
+  // profileImage     String?
   web3profileImage String?
   hashedPassword   String?
   createdAt        DateTime  @default(now())

@@ -5,7 +5,7 @@ import serverAuth from "@/libs/serverAuth";
 
 export const config = {
   api: {
-    responseLimit: "8mb",
+    responseLimit: false,
   },
 };
 
