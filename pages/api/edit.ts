@@ -42,22 +42,26 @@ export default async function handler(
       throw new Error("Missing fields");
     }
 
-    if (profileImage) {
+    if (profileImage && !profileImage.startsWith("http")) {
       var baseCode = profileImage.split(",")[0];
       var dataImageCode = profileImage.split(",")[1];
       const base64Response = await fetch(`${baseCode},${dataImageCode}`);
       const blob = await base64Response.blob();
       const addedProfileImage = await client.add(blob);
       web3profileImage = `https://ipfs.io/ipfs/${addedProfileImage.path}`;
+    } else {
+      web3profileImage = profileImage;
     }
 
-    if (coverImage) {
+    if (coverImage && !coverImage.startsWith("http")) {
       var baseCode2 = coverImage.split(",")[0];
       var dataImageCode2 = coverImage.split(",")[1];
       const base64Response2 = await fetch(`${baseCode2},${dataImageCode2}`);
       const blob2 = await base64Response2.blob();
       const addedCover = await client.add(blob2);
       web3CoverImage = `https://ipfs.io/ipfs/${addedCover.path}`;
+    } else {
+      web3CoverImage = coverImage;
     }
 
     const updatedUser = await prisma.user.update({

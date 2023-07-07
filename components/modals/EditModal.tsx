@@ -22,8 +22,8 @@ const EditModal = () => {
   const [bio, setBio] = useState("");
 
   useEffect(() => {
-    setProfileImage(currentUser?.profileImage);
-    setCoverImage(currentUser?.coverImage);
+    setProfileImage(currentUser?.web3profileImage);
+    setCoverImage(currentUser?.web3CoverImage);
     setName(currentUser?.name);
     setUsername(currentUser?.username);
     setBio(currentUser?.bio);
@@ -31,8 +31,8 @@ const EditModal = () => {
     currentUser?.name,
     currentUser?.username,
     currentUser?.bio,
-    currentUser?.profileImage,
-    currentUser?.coverImage,
+    currentUser?.web3profileImage,
+    currentUser?.web3CoverImage,
   ]);
   const [isLoading, setIsLoading] = useState(false);
 
