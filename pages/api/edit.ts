@@ -35,8 +35,8 @@ export default async function handler(
 
     const { name, username, bio, profileImage, coverImage } = req.body;
 
-    let web3profileImage = "";
-    let web3CoverImage = "";
+    let web3profileImage = null;
+    let web3CoverImage = null;
 
     if (!name || !username) {
       throw new Error("Missing fields");
@@ -68,8 +68,6 @@ export default async function handler(
         name,
         username,
         bio,
-        profileImage,
-        coverImage,
         web3profileImage,
         web3CoverImage,
       },
