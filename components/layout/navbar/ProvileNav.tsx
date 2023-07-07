@@ -50,9 +50,8 @@ const ProfileNav: React.FC<ProfileNavProps> = ({ currentUser }) => {
                   className="rounded-full bg-white"
                   alt="profile"
                   src={
-                    currentUser.profileImage
-                      ? currentUser.profileImage
-                      : "/images/default_profile.png"
+                    currentUser.web3profileImage ??
+                    "/images/default_profile.png"
                   }
                   width={24}
                   height={24}
