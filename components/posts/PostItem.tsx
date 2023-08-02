@@ -25,9 +25,9 @@ const PostItem: React.FC<PostItemProps> = ({ data = {}, userId }) => {
   const goToUser = useCallback(
     (ev: any) => {
       ev.stopPropagation();
-      router.push(`/users/${data.user.id}`);
+      router.push(`/users/${data.user?.id}`);
     },
-    [router, data.user.id]
+    [router, data.user?.id]
   );
 
   const goToPost = useCallback(() => {
@@ -73,7 +73,7 @@ const PostItem: React.FC<PostItemProps> = ({ data = {}, userId }) => {
         <div className="flex items-center gap-4">
           <div className="flex gap-4 items-center">
             <div className="flex gap-1 items-center">
-              <Avatar userId={data.user.id} />
+              <Avatar userId={data.user?.id} />
               <p
                 onClick={goToUser}
                 className="text-white 
@@ -81,7 +81,7 @@ const PostItem: React.FC<PostItemProps> = ({ data = {}, userId }) => {
                 cursor-pointer 
                 hover:underline"
               >
-                {data.user.username ?? data.user.email}
+                {data.user?.username ?? data.user?.email}
               </p>
             </div>
             <p>{createdAt} ago</p>
@@ -93,7 +93,7 @@ const PostItem: React.FC<PostItemProps> = ({ data = {}, userId }) => {
             size={20}
             onClick={onLike}
           />
-          {data.likedIds.length}
+          {data.likedIds?.length}
 
           <RiDiscussFill size={20} />
           {data.comments?.length || 0}

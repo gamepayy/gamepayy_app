@@ -1,0 +1,42 @@
+[
+    {
+      "title": "Elden Ring",
+      "subtitle": "Explore the Lands Between in this expansive open world Action RPG created by Hidetaka Miyazaki and George R.R. Martin", 
+      "link": "https://eldenring.com",
+      "description": "Elden Ring is a 2022 action role-playing game developed by FromSoftware and published by Bandai Namco Entertainment. The game takes place in the Lands Between, which was once governed by the Elden Ring and the demigod offspring of the mythical Queen Marika.",
+      "post_views": 327,
+      "author": "George R.R. Martin"
+    },
+    {
+      "title": "God of War Ragnarok", 
+      "subtitle": "Kratos and Atreus journey to each of the Nine Realms in search of answers as Asgardian forces prepare for a prophesied battle that will end the world.",
+      "link": "https://godofwar.playstation.com/",
+      "description": "God of War Ragnarök is an upcoming action-adventure game developed by Santa Monica Studio and published by Sony Interactive Entertainment for the PlayStation 4 and PlayStation 5.",
+      "post_views": 80,
+      "author": "Cory Barlog"
+    },
+    {
+      "title": "Pokemon Legends: Arceus",
+      "subtitle": "Journey back in time to study wild Pokémon when settlements were just developing in the Hisui region, before it came to be known as Sinnoh.",
+      "link": "https://legends.pokemon.com/en-us/",
+      "description": "Pokémon Legends: Arceus is a 2022 action role-playing game developed by Game Freak and published by Nintendo and The Pokémon Company for the Nintendo Switch.",
+      "post_views": 500,
+      "author": "The Pokemon Company"
+    },
+    {
+      "title": "Horizon Forbidden West",
+      "subtitle": "Aloy battles frightening new machines and travels west to brave a majestic frontier in order to uncover her past.",
+      "link": "https://www.playstation.com/en-us/games/horizon-forbidden-west/",
+      "description": "Horizon Forbidden West is an action role-playing game developed by Guerrilla Games and published by Sony Interactive Entertainment for the PlayStation 4 and PlayStation 5.",
+      "post_views": 211,
+      "author": "Guerrilla Games"
+    },
+    {
+      "title": "Halo Infinite",
+      "subtitle": "When all hope is lost and humanity's fate hangs in the balance, the Master Chief is ready to confront the most ruthless foe he's ever faced.",
+      "link": "https://www.halowaypoint.com/en-us/games/halo-infinite", 
+      "description": "Halo Infinite is a 2021 first-person shooter game developed by 343 Industries and published by Xbox Game Studios. It is the sixth mainline entry in the Halo series.",
+      "post_views": 329,
+      "author": "343 Industries"
+    }
+  ]
