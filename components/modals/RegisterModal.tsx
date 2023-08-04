@@ -12,7 +12,9 @@ import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { z } from 'zod'
 
+import * as React from "react"
 import { registerSchema } from "../../validators/auth"
+import { cn } from "../../libs/utils"
 import {
   Form,
   FormControl,
@@ -31,6 +33,15 @@ import {
   SelectTrigger,
   SelectValue,
 } from "../../components/shadcn/ui/select"
+import { Calendar } from "../../components/shadcn/ui/calendar"
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "../../components/shadcn/ui/popover"
+
+import { CalendarIcon } from "lucide-react"
+import { format } from "date-fns"
 
 import Modal from "../Modal";
 import axios from "axios";
@@ -47,22 +58,23 @@ const RegisterModal = () => {
   const [name, setName] = useState("");
   const [username, setUsername] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [date, setDate] = React.useState<Date>()
 
   const form = useForm<SHADCNInput>({
     resolver: zodResolver(registerSchema),
     defaultValues: {
-        username: "",
-        email: "",
-        dob: new Date(),
-        timeZone: "",
-        password: "",
-        confirmPassword: "",
-        weeklyHoursPlayed: 0,
-        yearsPlayed: "",
-        preferredGames: "",
-        skillLevel: "",
+      username: "",
+      email: "",
+      dob: new Date(),
+      timeZone: "",
+      password: "",
+      confirmPassword: "",
+      weeklyHoursPlayed: 0,
+      yearsPlayed: "",
+      preferredGames: "",
+      skillLevel: "",
     },
-})
+  })
 
   const onSubmit = useCallback(async () => {
     try {
@@ -158,7 +170,32 @@ const RegisterModal = () => {
               </FormItem>
             )}
           />
-          <Button type="submit" className="w-full bg-[#470D92] text-[#FCFCFC] rounded-[20px]">Submit</Button>
+          <Popover>
+            <PopoverTrigger asChild>
+              <Button
+                variant={"outline"}
+                className={cn(
+                  "w-full justify-between text-black",
+                  !date
+                )}
+              >
+                {date ? format(date, "PPP") : <span>Date of birth</span>}
+                <CalendarIcon className="mr-2 h-4 w-4" />
+              </Button>
+            </PopoverTrigger>
+            <PopoverContent className="w-auto p-0">
+              <Calendar
+                mode="single"
+                selected={date}
+                onSelect={setDate}
+                initialFocus
+                captionLayout="dropdown-buttons"
+                fromYear={1920}
+                toYear={2050}
+              />
+            </PopoverContent>
+          </Popover>
+          {/* <Button type="submit" className="w-full bg-[#470D92] text-[#FCFCFC] rounded-[20px]">Submit</Button> */}
         </form>
       </Form>
       {/* <Input

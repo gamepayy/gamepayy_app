@@ -30,7 +30,7 @@ body {
 
 @layer utilities {
     .post-link a {
-        @apply text-primary hover: underline;
+        /* @apply text-primary hover: underline; */
         /* Apply desired styles for the post-link class */
     }
 }
