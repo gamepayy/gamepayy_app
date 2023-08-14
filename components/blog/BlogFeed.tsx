@@ -5,14 +5,10 @@ type Props = {
 };
 
 const BlogFeed = ({ posts }: Props) => {
-  console.log(posts);
-
   return (
     <div className="flex flex-col gap-10 w-full">
       {posts.map((item) => (
-        <>
-          <BlogCard post={item} />
-        </>
+        <BlogCard post={item} key={item._id} />
       ))}
     </div>
   );

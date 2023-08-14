@@ -57,7 +57,7 @@ export async function getStaticPaths() {
   );
 
   return {
-    paths: paths.map((slug: any) => ({ params: { slug } })),
+    paths: paths.map((slug: string) => ({ params: { slug } })),
     fallback: true,
   };
 }
@@ -65,7 +65,6 @@ export async function getStaticPaths() {
 export async function getStaticProps(context: Context) {
   const { slug = '' } = context.params;
   const post = await client.fetch(query, { slug });
-  console.log(post);
 
   return {
     props: {
