@@ -26,6 +26,18 @@ jobs:
           npm install
           npm run build --if-present
           npm run test --if-present
+        env:  # Add this section to set environment variables
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          NEXTAUTH_SECRET: ${{ secrets.NEXTAUTH_SECRET }}
+          NEXTAUTH_JWT_SECRET: ${{ secrets.NEXTAUTH_JWT_SECRET }}
+          GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
+          GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
+          NEXT_PUBLIC_WEB3_STORAGE_API_KEY: ${{ secrets.NEXT_PUBLIC_WEB3_STORAGE_API_KEY }}
+          INFURA_ID: ${{ secrets.INFURA_ID }}
+          INFURA_SECRET: ${{ secrets.INFURA_SECRET }}
+          NEXT_PUBLIC_SANITY_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_SANITY_PROJECT_ID }}
+          NEXT_PUBLIC_SANITY_DATASET: ${{ secrets.NEXT_PUBLIC_SANITY_DATASET }}
+
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
