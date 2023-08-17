@@ -17,29 +17,53 @@ interface Props {
 
 const Post = ({ post }: Props) => {
   return (
-    <article className="text-white col-span-12">
-      <h1>{post.title}</h1>
-      <span>By {post.author.name}</span>
-      {post.categories && (
-        <ul>
-          Posted in
-          {post.categories.map((category) => (
-            <li key={category._id}>{category.title}</li>
-          ))}
-        </ul>
-      )}
-      {post.author.image && (
-        <div>
-          <Image
-            src={urlFor(post.author.image).width(50).url()}
-            alt={`${post.author.image}'s picture`}
-            width={50}
-            height={50}
-          />
+    <div className="col-span-12">
+      <div>
+        <Image
+          alt={post?.author?.name}
+          src={urlFor(post.mainImage).url()}
+          className="h-full w-full col-span-3"
+          width={1200}
+          height={1200}
+        />
+      </div>
+
+      <div className="flex items-center justify-center w-full">
+        <div className="w-3/4">
+          <div className="flex flex-row gap-2 mt-5 ">
+            {post.categories.map((category) => (
+              <div
+                className="border border-primary text-center text-white p-2 rounded-3xl text-[14px] font-semibold"
+                key={category._id}
+              >
+                <p>{category.title}</p>
+              </div>
+            ))}
+          </div>
+
+          <article className="text-white">
+            <h1 className="my-10 font-semibold text-sm md:text-4xl">
+              {post.title}
+            </h1>
+            <PortableText value={post.body} components={RichTextComponents} />
+
+            <div className="my-10">
+              <p className="text-neutral-500 font-semibold text-sm">
+                {new Date(post._createdAt).toLocaleDateString('en-US', {
+                  day: 'numeric',
+                  month: 'long',
+                  year: 'numeric',
+                })}
+              </p>
+
+              <p className="text-[#71ef71] text-sm font-bold italic">
+                {post.author.name}
+              </p>
+            </div>
+          </article>
         </div>
-      )}
-      <PortableText value={post.body} components={RichTextComponents} />
-    </article>
+      </div>
+    </div>
   );
 };
 
